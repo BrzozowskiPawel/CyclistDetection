@@ -23,3 +23,5 @@ while (True):
 vid.release()
 # Destroy all the windows
 cv2.destroyAllWindows()
+
+#!python detect.py --weights runs/train/exp/weights/best.pt --img 416 --conf 0.2 --source {dataset.location}/valid/images

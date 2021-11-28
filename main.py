@@ -1,16 +1,25 @@
-# This is a sample Python script.
+# import the opencv library
+import cv2
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+# define a video capture object
+vid = cv2.VideoCapture(0)
 
+while (True):
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+    # Capture the video frame
+    # by frame
+    ret, frame = vid.read()
 
+    # Display the resulting frame
+    cv2.imshow('frame', frame)
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+    # the 'q' button is set as the
+    # quitting button you may use any
+    # desired button of your choice
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# After the loop release the cap object
+vid.release()
+# Destroy all the windows
+cv2.destroyAllWindows()
